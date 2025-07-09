@@ -15,7 +15,7 @@ logging.basicConfig(
 
 try:
     # ------------------ Load Training Data ------------------ #
-    train_data_path = './data/interim/train_bow.csv'
+    train_data_path = './data/interim/train_tfidf.csv'
     if not os.path.exists(train_data_path):
         raise FileNotFoundError(f"Training data not found at: {train_data_path}")
     

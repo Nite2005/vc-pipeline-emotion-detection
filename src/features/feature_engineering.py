@@ -3,7 +3,7 @@ import yaml
 import logging
 import numpy as np
 import pandas as pd
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 # ---------------- Logging Configuration ---------------- #
 logging.basicConfig(
@@ -66,7 +66,7 @@ except KeyError as e:
 
 try:
     # ---------------- Apply Bag of Words ---------------- #
-    vectorizer = CountVectorizer(max_features=max_feature)
+    vectorizer = TfidfVectorizer(max_features=max_feature)
     
     X_train_bow = vectorizer.fit_transform(x_train)
     X_test_bow = vectorizer.transform(x_test)  # Use transform, not fit_transform for test
@@ -92,8 +92,8 @@ try:
     data_path = os.path.join('data', 'interim')
     os.makedirs(data_path, exist_ok=True)
 
-    train_df.to_csv(os.path.join(data_path, "train_bow.csv"), index=False)
-    test_df.to_csv(os.path.join(data_path, "test_bow.csv"), index=False)
+    train_df.to_csv(os.path.join(data_path, "train_tfidf.csv"), index=False)
+    test_df.to_csv(os.path.join(data_path, "test_tfidf.csv"), index=False)
     logging.info("BOW feature files saved successfully.")
 except Exception as e:
     logging.error(f"Error saving CSV files: {e}")

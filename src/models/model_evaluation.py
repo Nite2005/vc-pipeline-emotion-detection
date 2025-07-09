@@ -36,7 +36,7 @@ except Exception as e:
 
 try:
     # ---------------- Load Test Data ---------------- #
-    test_data_path = './data/interim/test_bow.csv'
+    test_data_path = './data/interim/test_tfidf.csv'
     if not os.path.exists(test_data_path):
         raise FileNotFoundError(f"Test data not found at: {test_data_path}")
     
